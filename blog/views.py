@@ -13,3 +13,6 @@ def singles(request,id):
 
 def portfolio(request):
     return render(request,'pindex.html')
+
+def createblog(request):
+    return render(request,'index.html')
