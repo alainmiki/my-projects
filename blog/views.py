@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from blog.models import Article
+from .models import Article
 # Create your views here.
 def home(request):
     article=Article.objects.all()
@@ -10,3 +10,6 @@ def singles(request,id):
     single=Article.objects.get(id=id)
 
     return render(request,'single.html',{'single':single})
+
+def portfolio(request):
+    return render(request,'pindex.html')
