@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+    Create Blog
+{% endblock title %}
+    
+
+
+{% block content %}
+
+<img src="{{image}}" alt="">
+{% for msg in messages  %}
+        {{msg}}
+    {% endfor %}
+<div class="container-fluid mr-23">
+    
+   
+    <form action="{% url 'addblog' %}" method="POST">
+        {% csrf_token %}
+       <div class="form-group form-inline">
+           
+           <div><label>reporter</label></div>
+           <input type="text" class="form-control"required placeholder="reporter" name="reporter">
+
+       </div>
+
+       <div class="form-group form-inline">
+            
+            <div><label>category</label></div>
+            <input type="text" class="form-control"required placeholder="category" name="category">
+ 
+        </div>
+        <div class="form-group form-inline">
+            <div><label>title:</label></div>
+                
+                <input type="text" class="form-control"required placeholder="title" name="title">
+     
+            </div>
+
+
+
+        <div class="form-group form-inline">
+                <label>Headline</label>
+                <input type="text" class="form-control"required placeholder="headline" name="headline">
+     
+            </div>
+
+        <div class="form-group custom-file">
+                <label>Image</label>
+                <input type="file" class="custom-file" required name="image">
+     
+            </div>
+        
+        <hr>
+       <p>Enter your blog body below</p>
+       <hr class="hr">
+        <div class=" form-group  custom-file">
+                <label>content</label>
+               <textarea name="content" require placeholder="enter your blog body" cols="30" rows="10"></textarea>
+     
+        </div>
+
+            <div class="form-group">
+                    <input type="submit" class="btn btn-success " value="Add Blog">
+         
+            </div>
+    
+        
+            
+    </form>
+       
+</div>
+      
+      <hr>
+      
+{% endblock content %}
+    
