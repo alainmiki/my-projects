@@ -136,30 +136,38 @@
 
 
 
-<div class="card-group">
-{% for art in article %}
-
-          <div class="card">
-          <a href="{% url 'singles' art.id %}" class="btn btn-secondary btn-lg">
-          <h3 class="card-title">{{art.title}}</h3> </a>
-          <h4>Category::{{art.category}}</h4>
-            <img src="{{art.image.url}}" class="card-img-top" alt="{{art.image.url}}">
-            <div class="card-body">
-              <h5 class="card-title">{{art.title}}</h5>
-              <p class="card-text">{{art.author}}</p>
-
-               <p class="card-text">{{art.headline}}</p>
-
-
-              <a href="{% url 'singles' art.id %}" class="btn btn-secondary btn-lg">
-          <h3 class="card-title">Read More</h3> </a>
-
-              <p class="card-text"><small class="text-muted">{{art.category}}</small></p>
-            </div>
+<div class="container-fluid form-inline mb-3">
+  <div class="row">
+  
+    {% for art in article %}
+      <div class="col">
+        <div class="card-group " >
+          <div class="card card-columns ">
+            <a href="{% url 'singles' art.id %}" class="btn btn-secondary btn-lg">
+            <h3 class="card-title">{{art.title}}</h3> </a>
+            <h4>Category::{{art.category}}</h4>
+              <img src="{{art.image.url}}" class="card-img-top" alt="{{art.image.url}}">
+              <div class="card-body">
+                <h5 class="card-title">{{art.title}}</h5>
+                <p class="card-text">{{art.author}}</p>
+  
+                <p class="card-text">{{art.headline}}</p>
+  
+  
+                <a href="{% url 'singles' art.id %}" class="btn btn-secondary btn-lg">
+                <h3 class="card-title">Read More</h3> </a>
+  
+                <p class="card-text"><small class="text-muted">{{art.category}}</small></p>
+              </div>
           </div>
-         
-        
-{% endfor %}
+        </div>
+      </div>
+      <hr>
+      <hr>
+    {% endfor %}
+
+  
+</div> 
 </div>
    <!-- Call to Action Section -->
   <section class="page-section bg-dark text-white">
