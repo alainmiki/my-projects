@@ -1,78 +1,94 @@
+
 {% extends "base.html" %}
 
-
+{% load static %}
 {% block title %}
     Create Blog
-{% endblock title %}
-    
-
-
-{% block content %}
-
-<img src="{{image}}" alt="">
+{% endblock %}
 {% for msg in messages  %}
         {{msg}}
     {% endfor %}
-<div class="container-fluid mr-23">
-    
-   
-    <form action="{% url 'addblog' %}" method="POST">
+
+{% block content %}
+
+
+
+     
+    <div class="container-fluid mr-23" style="background:linear-gradient(rgba(128, 128, 128, 0.705),
+    rgba(128, 128, 128, 0.685), 
+    rgba(128, 128, 128, 0.699)), url(static/img/portfolio/thumbnails/1.jpg);
+    background-repeat:no-repeat;background-size:cover;
+    border:12px solid white; width:60%;text-align:center">
+
+
+      <form enctype = "multipart/form-data" action="{% url 'addblog' %}"  method="POST">
         {% csrf_token %}
-       <div class="form-group form-inline">
+        <div class="container ">
+            <label for="reporter">Reporter:</label>
            
-           <div><label>reporter</label></div>
-           <input type="text" class="form-control"required placeholder="reporter" name="reporter">
+            <div class=" form-group  custom-file">
+                    {{form.reporter}}
+            </div>
+            </div>
 
-       </div>
-
-       <div class="form-group form-inline">
-            
-            <div><label>category</label></div>
-            <input type="text" class="form-control"required placeholder="category" name="category">
- 
+            <div class="container">
+            <label for="category">Category:</label>
+            <div class=" form-group  custom-file">
+                    {{form.category}}
+            </div>
         </div>
-        <div class="form-group form-inline">
-            <div><label>title:</label></div>
-                
-                <input type="text" class="form-control"required placeholder="title" name="title">
-     
+
+            <div class="container">
+            <label for="title">Title:</label>
+            <div class=" form-group  custom-file">
+                    {{form.title}}
             </div>
-
-
-
-        <div class="form-group form-inline">
-                <label>Headline</label>
-                <input type="text" class="form-control"required placeholder="headline" name="headline">
-     
-            </div>
-
-        <div class="form-group custom-file">
-                <label>Image</label>
-                <input type="file" class="custom-file" required name="image">
-     
-            </div>
+        </div>
         
-        <hr>
-       <p>Enter your blog body below</p>
-       <hr class="hr">
-        <div class=" form-group  custom-file">
-                <label>content</label>
-               <textarea name="content" require placeholder="enter your blog body" cols="30" rows="10"></textarea>
-     
-        </div>
+        <div class="container ">
+                <label for="image">Image:</label>
+                <div class=" form-group  custom-file">
+                        {{form.image}}
+                </div>
+                </div>
 
-            <div class="form-group">
-                    <input type="submit" class="btn btn-success " value="Add Blog">
+            <div class="container mt-5 mb-5">
+            <label for="headline">Headline:</label>
+            <div class=" form-group  custom-file">
+                    {{form.headline}}
+            
+            </div>
+            </div>
+            <hr>
+        <br>
+        <br>
+        <hr>
+
+            <div class="container mt-5 mb-5">
+            <label for="content">Content:</label>
+            <div class=" form-group  custom-file">
+                    {{form.content}}
+            </div>
          
             </div>
-    
+            <hr>
+            <br>
+            <br>
+                <div class="form-group form-inline mt-5">
+                        <!-- <input type="submit" class="btn btn-success fa-forward " value="Add Blog "> -->
+                        <button class=" fa-forward btn btn-success">Post Blog</button>
+             
+            </div>
+        
+        
+            
         
             
     </form>
        
 </div>
-      
-      <hr>
-      
-{% endblock content %}
+
+
     
+
+{% endblock content %}
